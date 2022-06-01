@@ -26,7 +26,7 @@ function Login() {
                 <img className="person" src={Person} alt="person" />
               </div>
             </Grid>
-            <Grid item xs={6} sx={{ marginTop: 20 }} >
+            <Grid item xs={6} sx={{ marginTop: 18 }} >
               <div class='right'>
                 <h1>Acessar meus dados</h1>
                 <h3>Informe seu e-mail</h3>
@@ -43,7 +43,7 @@ function Login() {
                 <Button variant='contained'>
                   Acessar
                 </Button>
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/cadastro" style={{ textDecoration: 'none' }}>
                   <p>
                     Ainda não possui cadastro? Registre aqui!
                   </p>

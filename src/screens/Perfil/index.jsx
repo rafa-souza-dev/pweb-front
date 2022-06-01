@@ -28,21 +28,28 @@ function Cadastro() {
             </Grid>
             <Grid item xs={6}>
               <div class='right'>
-                <h1>Insira seus dados !</h1>
+                <h1>Atualizar dados</h1>
                 <h3>Dados Pessoais</h3>
                 <Box
                   component="form"
                   sx={{
-                    '& > :not(style)': { maxWidth: 500, marginBottom: 1 },
+                    '& > :not(style)': { maxWidth: 500, marginBottom: 1.2 },
                   }}
                   noValidate
                   autoComplete="off"
                 >
-                  <TextField id="outlined-basic" label="Nome" variant="outlined" fullWidth />
-                  <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth />
-                  <TextField id="outlined-basic" label="Altura (Cm)" variant="outlined" />
+                  <TextField id="outlined-basic" label="Nome" variant="outlined" fullWidth 
+                    defaultValue="Rafael Souza"
+                  />
+                  <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth 
+                    defaultValue="rafael@exemplo.com"
+                  />
+                  <TextField id="outlined-basic" label="Altura (Cm)" variant="outlined" 
+                    defaultValue={175}
+                  />
                   <TextField id="outlined-basic" label="Gênero/Sexo" variant="outlined"
                     sx={{ marginLeft: 1 }}
+                    defaultValue="Masculino"
                   />
                 </Box>
                 <h3>Metas</h3>
@@ -54,20 +61,20 @@ function Cadastro() {
                   noValidate
                   autoComplete="off"
                 >
-                  <TextField id="outlined-basic" label="Peso inicial(atual)" variant="outlined" />
+                  <TextField id="outlined-basic" label="Peso inicial(atual)" variant="outlined" 
+                    defaultValue={100}
+                  />
                   <TextField id="outlined-basic" label="Peso Desejado" variant="outlined"
                     sx={{ marginLeft: 1 }}
+                    defaultValue={80}
                   />
-                  <TextField id="outlined-basic" label="Data para alcançar" variant="outlined" />
+                  <TextField id="outlined-basic" label="Data para alcançar" variant="outlined" 
+                    defaultValue="11/11/1111"
+                  />
                 </Box>
                 <Button variant='contained'>
-                  Finalizar
+                  Atualizar
                 </Button>
-                <Link to="/login" style={{ textDecoration: 'none' }}>
-                  <p>
-                    Já possui cadastro? Entre aqui!
-                  </p>
-                </Link>
               </div>
             </Grid>
           </Grid>

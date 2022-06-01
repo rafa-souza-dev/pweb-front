@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Cadastro from './screens/Cadastro';
 import Login from './screens/Login';
+import Perfil from './screens/Perfil';
 
 export default function CustomRoutes() {
     return (
@@ -13,6 +14,10 @@ export default function CustomRoutes() {
             <Route 
                 path="/login" 
                 element={<Login />}
+            />
+            <Route 
+                path="/perfil" 
+                element={<Perfil />}
             />
         </Routes>
     );
