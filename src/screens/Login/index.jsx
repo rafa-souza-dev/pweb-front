@@ -8,56 +8,69 @@ import TextField from '@mui/material/TextField';
 import './index.css';
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#000',
+    },
+  },
+});
 
 function Login() {
   return (
-    <div>
-      <header>
-        <Header />
-      </header>
-      <br></br>
-      <Grid container columns={16}>
-        <Grid item xs={1}>
-        </Grid>
-        <Grid item xs={14}>
-          <Grid container spacing={13}>
-            <Grid item xs={6}>
-              <div class='left'>
-                <img className="person" src={Person} alt="person"
-                  height={550}
-                />
-              </div>
-            </Grid>
-            <Grid item xs={6} sx={{ marginTop: 18 }} >
-              <div class='right'>
-                <h1>Acessar meus dados</h1>
-                <h3>Informe seu e-mail</h3>
-                <Box
-                  component="form"
-                  sx={{
-                    '& > :not(style)': { maxWidth: 500, marginBottom: 1 },
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth />
-                </Box>
-                <Button variant='contained'>
-                  Acessar
-                </Button>
-                <Link to="/cadastro" style={{ textDecoration: 'none' }}>
-                  <p>
-                    Ainda não possui cadastro? Registre aqui!
-                  </p>
-                </Link>
-              </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <header>
+          <Header />
+        </header>
+        <br></br>
+        <Grid container columns={16}>
+          <Grid item xs={1}>
+          </Grid>
+          <Grid item xs={14}>
+            <Grid container spacing={13}>
+              <Grid item xs={6}>
+                <div class='left'>
+                  <img className="person" src={Person} alt="person"
+                    height={550}
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={6} sx={{ marginTop: 18 }} >
+                <div class='right'>
+                  <h1>Acessar meus dados</h1>
+                  <h3>Informe seu e-mail</h3>
+                  <Box
+                    component="form"
+                    sx={{
+                      '& > :not(style)': { maxWidth: 500, marginBottom: 1 },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth />
+                  </Box>
+                  <Button variant='contained'>
+                    Acessar
+                  </Button>
+                  <Link to="/cadastro"
+                    style={{ color: '#000' }}
+                  >
+                    <p>
+                      Ainda não possui cadastro? Registre aqui!
+                    </p>
+                  </Link>
+                </div>
+              </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={1}>
+          </Grid>
         </Grid>
-        <Grid item xs={1}>
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
