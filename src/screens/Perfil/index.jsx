@@ -23,7 +23,9 @@ function Cadastro() {
           <Grid container spacing={13}>
             <Grid item xs={6}>
               <div class='left'>
-                <img className="person" src={Person} alt="person" />
+                <img className="person" src={Person} alt="person" 
+                  height={550}
+                />
               </div>
             </Grid>
             <Grid item xs={6}>
