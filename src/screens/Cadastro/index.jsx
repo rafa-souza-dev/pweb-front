@@ -23,6 +23,7 @@ function Cadastro() {
     <ThemeProvider theme={theme}>
       <div>
         <Header />
+        <br></br>
         <Grid container columns={16}>
           <Grid item xs={1}>
           </Grid>

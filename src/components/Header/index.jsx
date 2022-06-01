@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ flexGrow: 1, marginBottom: 0.2 }}>
+      <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{ paddingInlineStart: 4, paddingInlineEnd: 4, }}>
           <Toolbar>
             <IconButton
