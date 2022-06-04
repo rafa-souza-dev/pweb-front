@@ -73,7 +73,7 @@ function Cadastro() {
                   <Button variant='contained'>
                     Finalizar
                   </Button>
-                  <Link to="/login"
+                  <Link to="/"
                     style={{ color: '#000' }}
                   >
                     <p>

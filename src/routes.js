@@ -12,7 +12,7 @@ export default function CustomRoutes() {
                 element={<Cadastro />}
             />
             <Route 
-                path="/login" 
+                path="/" 
                 element={<Login />}
             />
             <Route 

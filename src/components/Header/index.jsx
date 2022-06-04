@@ -38,19 +38,29 @@ export default function ButtonAppBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Controle seu peso
             </Typography>
-            <Link to="/"
-              style={{ textDecoration: 'none', color: "#fff" }}
-            >
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                DashBoard
-              </Typography>
-            </Link>
-            {isLogged &&
-              <Link to="/perfil"
+            {!isLogged ?
+              <>
+                <Link to="/"
+                  style={{ textDecoration: 'none', color: "#fff" }}
+                >
+                  <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    DashBoard
+                  </Typography>
+                </Link>
+                <Link to="/perfil"
+                  style={{ textDecoration: 'none', color: "#fff" }}
+                >
+                  <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: 2 }}>
+                    Atualizar dados
+                  </Typography>
+                </Link>
+              </>
+              :
+              <Link to="/"
                 style={{ textDecoration: 'none', color: "#fff" }}
               >
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: 2 }}>
-                  Atualizar dados
+                  Login/Registrar
                 </Typography>
               </Link>
             }
