@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../assets/vector.png';
 import Person from '../../assets/person.png';
 import Header from '../../components/Header';
@@ -19,6 +19,14 @@ const theme = createTheme({
 });
 
 function Cadastro() {
+  const [valueNome, setValueNome] = useState("");
+  const [valueEmail, setValueEmail] = useState("");
+  const [valueAltura, setValueAltura] = useState("");
+  const [valueGenero, setValueGenero] = useState("");
+  const [valuePesoInicial, setValuePesoInicial] = useState("");
+  const [valuePesoFinal, setValuePesoFinal] = useState("");
+  const [valueData, setValueData] = useState("");
+
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -48,11 +56,31 @@ function Cadastro() {
                     noValidate
                     autoComplete="off"
                   >
-                    <TextField id="outlined-basic" label="Nome" variant="outlined" fullWidth />
-                    <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth />
-                    <TextField id="outlined-basic" label="Altura (Cm)" variant="outlined" />
+                    <TextField id="outlined-basic" label="Nome" variant="outlined" fullWidth 
+                    defaultValue={valueNome}
+                    onChange={event => {
+                      const { value } = event.target;
+                      setValueNome(value);
+                    }}/>
+                    <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth 
+                    defaultValue={valueEmail}
+                    onChange={event => {
+                      const { value } = event.target;
+                      setValueEmail(value);
+                    }}/>
+                    <TextField id="outlined-basic" label="Altura (Cm)" variant="outlined" 
+                    defaultValue={valueAltura}
+                    onChange={event => {
+                      const { value } = event.target;
+                      setValueAltura(value);
+                    }}/>
                     <TextField id="outlined-basic" label="Gênero/Sexo" variant="outlined"
                       sx={{ marginLeft: 1 }}
+                      defaultValue={valueGenero}
+                      onChange={event => {
+                        const { value } = event.target;
+                        setValueGenero(value);
+                      }}
                     />
                   </Box>
                   <h3>Metas</h3>
@@ -64,9 +92,19 @@ function Cadastro() {
                     noValidate
                     autoComplete="off"
                   >
-                    <TextField id="outlined-basic" label="Peso inicial(atual)" variant="outlined" />
+                    <TextField id="outlined-basic" label="Peso inicial(atual)" variant="outlined" 
+                    defaultValue={valuePesoInicial}
+                    onChange={event => {
+                      const { value } = event.target;
+                      setValuePesoInicial(value);
+                    }}/>
                     <TextField id="outlined-basic" label="Peso Desejado" variant="outlined"
                       sx={{ marginLeft: 1 }}
+                      defaultValue={valuePesoFinal}
+                      onChange={event => {
+                        const { value } = event.target;
+                        setValuePesoFinal(value);
+                      }}
                     />
                     <TextField id="outlined-basic" label="Data para alcançar" variant="outlined" />
                   </Box>
