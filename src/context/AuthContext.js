@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-import client from '../client/client.mjs';
-
 import history from '../history';
 
 const Context = createContext();

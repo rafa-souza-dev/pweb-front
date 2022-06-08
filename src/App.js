@@ -1,14 +1,17 @@
 import React from 'react';
 
 import { BrowserRouter } from 'react-router-dom';
-
+import { AuthProvider } from './context/AuthContext';
+import history from './history';
 import CustomRoutes from './routes';
 
 function App() {
     return (
-      <BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter history={history}>
           <CustomRoutes />
-      </BrowserRouter>
+        </BrowserRouter>
+      </AuthProvider>
     );
 };
 
