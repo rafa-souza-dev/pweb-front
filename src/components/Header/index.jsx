@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Vector from '../../assets/vector.png';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import { Context } from '../../context/AuthContext';
 
 const theme = createTheme({
   palette: {
@@ -19,7 +20,7 @@ const theme = createTheme({
 });
 
 export default function ButtonAppBar() {
-  const [isLogged, setLogged] = React.useState(true)
+  const { authenticated, handleLogout } = React.useContext(Context);
 
   return (
     <ThemeProvider theme={theme}>
@@ -38,8 +39,9 @@ export default function ButtonAppBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Controle seu peso
             </Typography>
-            {!isLogged ?
+            {authenticated ?
               <>
+                <Box sx={{ flexGrow: 60 }} />
                 <Link to="/"
                   style={{ textDecoration: 'none', color: "#fff" }}
                 >
@@ -54,6 +56,11 @@ export default function ButtonAppBar() {
                     Atualizar dados
                   </Typography>
                 </Link>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: 2, cursor: "pointer" }}
+                  onClick={() => handleLogout()}
+                >
+                  Sair
+                </Typography>
               </>
               :
               <Link to="/"

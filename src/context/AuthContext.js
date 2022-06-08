@@ -44,15 +44,15 @@ function AuthProvider({ children }) {
 
     function handleLogout() {
         setAuthenticated(false);
-        localStorage.setItem('id');
-        localStorage.setItem('nome');
-        localStorage.setItem('altura');
-        localStorage.setItem('email');
-        localStorage.setItem('genero');
-        localStorage.setItem('pesoInicial');
-        localStorage.setItem('pesoFinal');
-        localStorage.setItem('dataInicial');
-        localStorage.setItem('dataFinal');
+        localStorage.removeItem('id');
+        localStorage.removeItem('nome');
+        localStorage.removeItem('altura');
+        localStorage.removeItem('email');
+        localStorage.removeItem('genero');
+        localStorage.removeItem('pesoInicial');
+        localStorage.removeItem('pesoFinal');
+        localStorage.removeItem('dataInicial');
+        localStorage.removeItem('dataFinal');
         history.push('/');
         history.go();
     }
