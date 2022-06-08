@@ -3,6 +3,7 @@
     text-align: start;
     flex-direction: column;
     padding: 1%;
+    margin: 10px;
     align-items: center;
     align-content: space-between;
     justify-content: space-evenly;

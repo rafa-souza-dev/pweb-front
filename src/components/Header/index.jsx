@@ -42,7 +42,7 @@ export default function ButtonAppBar() {
             {authenticated ?
               <>
                 <Box sx={{ flexGrow: 60 }} />
-                <Link to="/"
+                <Link to="/dashboard"
                   style={{ textDecoration: 'none', color: "#fff" }}
                 >
                   <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
