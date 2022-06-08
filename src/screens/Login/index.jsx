@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Logo from '../../assets/vector.png';
 import Person from '../../assets/person.png';
 import Header from '../../components/Header';
@@ -9,6 +9,7 @@ import './index.css';
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
+import { Context } from '../../context/AuthContext';
 
 const theme = createTheme({
   palette: {
@@ -19,6 +20,10 @@ const theme = createTheme({
 });
 
 function Login() {
+  const [valueEmail, setValueEmail] = useState("");
+  
+  const { handleLogin } = useContext(Context);
+
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -50,9 +55,22 @@ function Login() {
                     noValidate
                     autoComplete="off"
                   >
-                    <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth />
+                    <TextField
+                      id="outlined-basic"
+                      label="Email"
+                      variant="outlined"
+                      fullWidth
+                      defaultValue={valueEmail}
+                      onChange={event => {
+                        const { value } = event.target;
+                        setValueEmail(value);
+                      }}
+                    />
                   </Box>
-                  <Button variant='contained'>
+                  <Button 
+                    variant='contained'
+                    onClick={() => handleLogin(valueEmail)}
+                  >
                     Acessar
                   </Button>
                   <Link to="/cadastro"

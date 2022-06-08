@@ -19,31 +19,26 @@ function AuthProvider({ children }) {
     }, [])
 
     async function handleLogin(userEmail) {
-        const { data: { 
-            id, nome, email,
-            altura, genero, pesoInicial,
-            pesoFinal, dataInicial, dataFinal
-         } } = await
-            fetch(`http://127.0.0.1:8081/api/usuario/email/${userEmail}`, {
-                method: "GET"
+        await fetch(`http://127.0.0.1:8081/api/usuario/email/${userEmail}`, {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.id !== undefined) {
+                    localStorage.setItem('id', data.id);
+                    localStorage.setItem('nome', data.nome);
+                    localStorage.setItem('altura', data.altura);
+                    localStorage.setItem('email', data.email);
+                    localStorage.setItem('genero', data.genero);
+                    localStorage.setItem('pesoInicial', data.pesoInicial);
+                    localStorage.setItem('pesoFinal', data.pesoFinal);
+                    localStorage.setItem('dataInicial', data.dataInicial);
+                    localStorage.setItem('dataFinal', data.dataFinal);
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                })
-
-        localStorage.setItem('id', id);
-        localStorage.setItem('nome', nome);
-        localStorage.setItem('altura', altura);
-        localStorage.setItem('email', email);
-        localStorage.setItem('genero', genero);
-        localStorage.setItem('pesoInicial', pesoInicial);
-        localStorage.setItem('pesoFinal', pesoFinal);
-        localStorage.setItem('dataInicial', dataInicial);
-        localStorage.setItem('dataFinal', dataFinal);
 
         setAuthenticated(true);
-        history.push('/home');
+        history.push('/perfil');
         history.go();
     }
 

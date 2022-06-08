@@ -20,7 +20,7 @@ export default function CustomRoutes() {
             <Route 
                 path="/cadastro" 
                 element={
-                    <PrivateRouteLogged redirectTo={"/"}>
+                    <PrivateRouteLogged redirectTo={"/perfil"}>
                         <Cadastro />
                     </PrivateRouteLogged>
                 }
@@ -28,7 +28,7 @@ export default function CustomRoutes() {
             <Route 
                 path="/" 
                 element={
-                    <PrivateRouteLogged redirectTo={"/"}>
+                    <PrivateRouteLogged redirectTo={"/perfil"}>
                         <Login />
                     </PrivateRouteLogged>
                 }
