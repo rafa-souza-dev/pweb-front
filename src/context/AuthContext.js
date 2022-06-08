@@ -11,27 +11,39 @@ function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const access = localStorage.getItem('access');
+        const id = localStorage.getItem('id');
 
-        if (access) {
-            client.defaults.headers.Authorization = "Bearer " + access;
+        if (id) {
             setAuthenticated(true);
         }
 
         setLoading(false);
     }, [])
 
-    async function handleLogin(user) {
-        const { data: { access, refresh } } = await client
-            .post('api/token/', {
-                email: user.email,
-                password: user.password
+    async function handleLogin(userEmail) {
+        const { data: { 
+            id, nome, email,
+            altura, genero, pesoInicial,
+            pesoFinal, dataInicial, dataFinal
+         } } = await
+            fetch(`http://127.0.0.1:8081/api/usuario/email/${userEmail}`, {
+                method: "GET"
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
 
-        localStorage.setItem('access', access);
-        localStorage.setItem('refresh', refresh);
+        localStorage.setItem('id', id);
+        localStorage.setItem('nome', nome);
+        localStorage.setItem('altura', altura);
+        localStorage.setItem('email', email);
+        localStorage.setItem('genero', genero);
+        localStorage.setItem('pesoInicial', pesoInicial);
+        localStorage.setItem('pesoFinal', pesoFinal);
+        localStorage.setItem('dataInicial', dataInicial);
+        localStorage.setItem('dataFinal', dataFinal);
 
-        client.defaults.headers.Authorization = "Bearer " + access;
         setAuthenticated(true);
         history.push('/home');
         history.go();
@@ -39,8 +51,15 @@ function AuthProvider({ children }) {
 
     function handleLogout() {
         setAuthenticated(false);
-        localStorage.removeItem('access');
-        client.defaults.headers.Authorization = undefined;
+        localStorage.setItem('id');
+        localStorage.setItem('nome');
+        localStorage.setItem('altura');
+        localStorage.setItem('email');
+        localStorage.setItem('genero');
+        localStorage.setItem('pesoInicial');
+        localStorage.setItem('pesoFinal');
+        localStorage.setItem('dataInicial');
+        localStorage.setItem('dataFinal');
         history.push('/');
         history.go();
     }
